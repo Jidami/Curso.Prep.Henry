@@ -3,18 +3,23 @@
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un array
   // Tu código:
+  return array[0]
 }
 
 
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  var elultimo = array.length;
+  return array[elultimo - 1];
 }
 
 
 function obtenerLargoDelArray(array) {
   // Devuelve el largo de un array
   // Tu código:
+  var elultimo = array.length;
+  return elultimo;
 }
 
 
@@ -23,6 +28,11 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
+  var numero = array.length;
+  for (i = 0; i < numero; i++) {
+    array[i] = array[i] + 1;
+  }
+  return array;
 }
 
 
@@ -30,6 +40,8 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
+  array.push(elemento);
+  return array;
 }
 
 
@@ -38,6 +50,8 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
+  array.unshift(elemento);
+  return array;
 }
 
 
@@ -47,6 +61,8 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
+  var cadena = palabras.join(" ");
+  return cadena;
 }
 
 
@@ -54,6 +70,11 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
+  if (array.indexOf (elemento) !== -1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -61,6 +82,8 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
+  let numero = numeros.reduce((a,b) => a + b, 0);
+  return numero
 }
 
 
@@ -68,6 +91,10 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+  const total = resultadosTest.reduce((a,b) => a + b, 0);
+  var elemento = resultadosTest.length;
+  var promedio = total/elemento;
+  return promedio
 }
 
 
@@ -75,6 +102,8 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
+  var masgrande = Math.max (numeros)
+  return masgrande;
 }
 
 
@@ -82,13 +111,28 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  if (arguments.length < 1) {
+    return 0;
+  }
+  var multiplicacion = 1;
+  for(i=0;i<arguments.length;i++) {
+    multiplicacion = multiplicacion * arguments[i];
+  }
+  return multiplicacion;
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-
+  var ele = arreglo.length ;
+  var tot = 0;
+  for(i=0;i<ele;i++){
+    if(arreglo[i] > 18){
+      tot = tot + 1;
+    }
+  }
+return tot;
 }
 
 
@@ -97,7 +141,11 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  
+  if (numeroDeDia === 1 || numeroDeDia === 7) {
+    return "Es fin de semana";
+  } else {
+    return "Es dia Laboral";
+  }
 } 
 
 
@@ -105,8 +153,13 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
-}
+  var one = String(n).charAt(0)
+  if (one === "9") {
+    return true;
+  } else {
+    return false ;
+  }
+ }
 
 
 function todosIguales(arreglo) {
